@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "AdBlock",
+  "version": "2.0",
+  "description": "Replace website images with your custom photo libraries.",
+  "icons": {
+    "48": "Adblock.png",
+    "128": "Adblock.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "Adblock.png",
+      "128": "Adblock.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["jquery.js", "nCatossi.js"]
+    }
+  ],
+  "permissions": ["storage", "alarms"],
+  "web_accessible_resources": [
+    {
+      "resources": ["*.jpeg", "*.jpg", "*.png", "background/*.jpg"],
+      "matches": ["*://*/*"]
+    }
+  ]
+}
